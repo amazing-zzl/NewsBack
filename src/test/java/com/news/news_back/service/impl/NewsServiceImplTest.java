@@ -27,7 +27,7 @@ public class NewsServiceImplTest {
     @Test
     public void findOne() {
         NewsInfo newsInfo = newsService.findOne("123456");
-        Assert.assertEquals("123456",newsInfo.getNewsId());
+        Assert.assertEquals(new Integer(12345),newsInfo.getNewsId());
     }
 
     @Test
@@ -38,7 +38,7 @@ public class NewsServiceImplTest {
 
     @Test
     public void findAll() {
-        PageRequest request = new PageRequest(0,2);
+        PageRequest request = new PageRequest(0,6);
         Page<NewsInfo> newsInfoPage = newsService.findAll(request);
         System.out.println(newsInfoPage.getTotalElements());
     }
@@ -46,10 +46,10 @@ public class NewsServiceImplTest {
     @Test
     public void save() {
         NewsInfo newsInfo = new NewsInfo();
-        newsInfo.setNewsId("123457");
-        newsInfo.setNewsTitle("这是我们的第2条新闻");
+        newsInfo.setNewsId(24212);
+        newsInfo.setNewsTitle("这是我们的第5条新闻");
         newsInfo.setNewsContent("这是我们的第2222222222222222条新闻的内容");
-        newsInfo.setNewsCategory(2);
+        newsInfo.setNewsCategory(5);
         newsInfo.setNewsIsreview(NewsReviewEnum.NO.getCode());
         NewsInfo result = newsService.save(newsInfo);
         Assert.assertNotEquals(null,result);

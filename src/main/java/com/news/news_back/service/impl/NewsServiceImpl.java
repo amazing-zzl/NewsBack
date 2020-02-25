@@ -14,8 +14,12 @@ import java.util.List;
 @Service
 public class NewsServiceImpl implements NewsService {
 
+    private final NewsInfoRepository repository;
+
     @Autowired
-    private NewsInfoRepository repository;
+    public NewsServiceImpl(NewsInfoRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public NewsInfo findOne(String newsId) {
@@ -32,6 +36,7 @@ public class NewsServiceImpl implements NewsService {
     public Page<NewsInfo> findAll(Pageable pageable) {
         return repository.findAll(pageable);
     }
+
 
     @Override
     public NewsInfo save(NewsInfo newsInfo) {

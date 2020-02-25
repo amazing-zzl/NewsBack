@@ -22,7 +22,7 @@ public class NewsInfoRepositoryTest {
     @Test
     public void saveTest(){
         NewsInfo newsInfo = new NewsInfo();
-        newsInfo.setNewsId("123456");
+        newsInfo.setNewsId(123456);
         newsInfo.setNewsTitle("这是我们的第一条新闻");
         newsInfo.setNewsContent("这是我们的第一条新闻的内容");
         newsInfo.setNewsCategory(1);
