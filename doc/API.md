@@ -1,8 +1,8 @@
 # API
 
-###新闻列表
+###新闻主页
 ```
-GET /news_back/user/news/list
+GET /news_back/user/news/index
 ```
 
 参数
@@ -49,34 +49,29 @@ GET /news_back/user/news/list
 ```
 
 
-###创建订单
+###新闻详情
 
 ```
-POST /sell/buyer/order/create
+GET /news_back/user/news/details?id=
 ```
 
 参数
-
+* 请求request
 ```
-name: "张三"
-phone: "18868822111"
-address: "慕课网总部"
-openid: "ew3euwhd7sjw9diwkq" //用户的微信openid
-items: [{
-    productId: "1423113435324",
-    productQuantity: 2 //购买数量
-}]
-
+newsId
 ```
-
-返回
+* 返回response
 
 ```
 {
   "code": 0,
   "msg": "成功",
   "data": {
-      "orderId": "147283992738221" 
+        id:1,
+        title:"标题",
+        content:"内容",
+        isreview:1,
+        updateTime:202002020
   }
 }
 ```

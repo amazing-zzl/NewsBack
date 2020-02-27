@@ -22,8 +22,8 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Override
-    public NewsInfo findOne(String newsId) {
-        return repository.findOne(newsId);
+    public NewsInfo findOne(Integer newsId) {
+        return repository.findByNewsId(newsId);
     }
 
     @Override

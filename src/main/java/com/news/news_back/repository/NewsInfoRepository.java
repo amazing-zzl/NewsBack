@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface NewsInfoRepository extends JpaRepository<NewsInfo,String> {
     List<NewsInfo> findByNewsIsreview(Integer newsIsreview);
+    NewsInfo findByNewsId(Integer newsId);
+
 }

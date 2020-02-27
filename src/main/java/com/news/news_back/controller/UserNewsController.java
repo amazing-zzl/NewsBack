@@ -12,12 +12,18 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * 用户主页面初始化
+ */
 
 @RestController
 @RequestMapping("/user/news")
@@ -33,12 +39,18 @@ public class UserNewsController {
         this.categoryService = categoryService;
     }
 
-    @GetMapping("/list")
-    public ResultVO list(){
+    @GetMapping("/index")
+    public ResultVO Index(){
         // 1.查询所有新闻
-        PageRequest request = new PageRequest(0,6);
-        Page<NewsInfo> newsInfoPage = newsService.findAll(request);
-        List<NewsInfo> newsInfoList = newsInfoPage.getContent();
+        Sort sort = new Sort(Sort.Direction.DESC, "newsId");
+        Pageable pageable = new PageRequest(0,10,sort);
+        List<NewsInfo> newsInfoList = new ArrayList<>();
+        while(pageable != null){
+            Page<NewsInfo> findThisPage  = newsService.findAll(pageable);
+            List<NewsInfo> content = findThisPage.getContent();
+            newsInfoList.addAll(content);
+            pageable = findThisPage.nextPageable();
+        }
 
         // 2.查询类目
         List<Integer> categoryTypeList = new ArrayList<>();
@@ -58,9 +70,12 @@ public class UserNewsController {
              List<NewsInfoVO> newsInfoVOList = new ArrayList<>();
             for (NewsInfo newsInfo : newsInfoList){
                 if(newsInfo.getNewsCategory().equals(newsCategory.getCategoryType())){
-                    NewsInfoVO newsInfoVO = new NewsInfoVO();
-                    BeanUtils.copyProperties(newsInfo,newsInfoVO);
-                    newsInfoVOList.add(newsInfoVO);
+                    if (newsInfoVOList.size()<6){
+                        NewsInfoVO newsInfoVO = new NewsInfoVO();
+                        BeanUtils.copyProperties(newsInfo,newsInfoVO);
+                        newsInfoVOList.add(newsInfoVO);
+                    }
+                    else break;
                 }
             }
             newsVO.setNewsInfoVOList(newsInfoVOList);

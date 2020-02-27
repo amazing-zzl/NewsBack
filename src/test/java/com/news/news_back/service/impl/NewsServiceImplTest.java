@@ -26,8 +26,8 @@ public class NewsServiceImplTest {
 
     @Test
     public void findOne() {
-        NewsInfo newsInfo = newsService.findOne("123456");
-        Assert.assertEquals(new Integer(12345),newsInfo.getNewsId());
+        NewsInfo newsInfo = newsService.findOne(1);
+        Assert.assertEquals(new Integer(1),newsInfo.getNewsId());
     }
 
     @Test

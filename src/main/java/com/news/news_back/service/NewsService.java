@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface NewsService {
 
-    NewsInfo findOne(String newsId);
+    NewsInfo findOne(Integer newsId);
 
     /*查询可评论的新闻*/
     List<NewsInfo> findUpAll();
