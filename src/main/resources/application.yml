@@ -7,4 +7,5 @@ spring:
   jpa:
     show-sql: true
 
-
+server:
+  context-path: /news_back

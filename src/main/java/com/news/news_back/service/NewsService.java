@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface NewsService {
 
-    NewsInfo findOne(String newsId);
+    NewsInfo findOne(Integer newsId);
 
     /*查询可评论的新闻*/
     List<NewsInfo> findUpAll();
@@ -16,4 +16,6 @@ public interface NewsService {
     Page<NewsInfo> findAll(Pageable pageable);
 
     NewsInfo save(NewsInfo newsInfo);
+
+    Page<NewsInfo> findList(Integer category,Pageable pageable);
 }
