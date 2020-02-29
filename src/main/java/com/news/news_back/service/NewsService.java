@@ -16,4 +16,6 @@ public interface NewsService {
     Page<NewsInfo> findAll(Pageable pageable);
 
     NewsInfo save(NewsInfo newsInfo);
+
+    Page<NewsInfo> findList(Integer category,Pageable pageable);
 }

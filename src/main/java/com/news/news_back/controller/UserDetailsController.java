@@ -31,7 +31,6 @@ public class UserDetailsController{
      */
     @GetMapping("/details")
     public ResultVO Details(@RequestParam("id") Integer id){
-        System.out.println(id);
         //1.根据新闻id，查询新闻
         NewsInfo newsDetails = newsService.findOne(id);
         //2.组装数据返回

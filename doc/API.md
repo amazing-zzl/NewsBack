@@ -76,159 +76,33 @@ newsId
 }
 ```
 
-###订单列表
+####1.订单List
+
+http://localhost:8080/newsList/1/最新通知
+
+**newsList/newsCategory/categoryName**
+
+> request
 
 ```
-GET /sell/buyer/order/list
+categoryType 新闻类型
+pageSize(default=10)
+pageNum(default=1)
 ```
 
-参数
+> response
 
-```
-openid: 18eu2jwk2kse3r42e2e
-page: 0 //从第0页开始
-size: 10
-```
-
-返回
+success
 
 ```
 {
   "code": 0,
   "msg": "成功",
-  "data": [
-    {
-      "orderId": "161873371171128075",
-      "buyerName": "张三",
-      "buyerPhone": "18868877111",
-      "buyerAddress": "慕课网总部",
-      "buyerOpenid": "18eu2jwk2kse3r42e2e",
-      "orderAmount": 0,
-      "orderStatus": 0,
-      "payStatus": 0,
-      "createTime": 1490171219,
-      "updateTime": 1490171219,
-      "orderDetailList": null
-    },
-    {
-      "orderId": "161873371171128076",
-      "buyerName": "张三",
-      "buyerPhone": "18868877111",
-      "buyerAddress": "慕课网总部",
-      "buyerOpenid": "18eu2jwk2kse3r42e2e",
-      "orderAmount": 0,
-      "orderStatus": 0,
-      "payStatus": 0,
-      "createTime": 1490171219,
-      "updateTime": 1490171219,
-      "orderDetailList": null
-    }]
+  "data": {
+    "list": [
+    
+        ],
 }
-```
-
-###查询订单详情
-
-```
-GET /sell/buyer/order/detail
-```
-
-参数
-
-```
-openid: 18eu2jwk2kse3r42e2e
-orderId: 161899085773669363
-```
-
-返回
-
-```
-{
-    "code": 0,
-    "msg": "成功",
-    "data": {
-          "orderId": "161899085773669363",
-          "buyerName": "李四",
-          "buyerPhone": "18868877111",
-          "buyerAddress": "慕课网总部",
-          "buyerOpenid": "18eu2jwk2kse3r42e2e",
-          "orderAmount": 18,
-          "orderStatus": 0,
-          "payStatus": 0,
-          "createTime": 1490177352,
-          "updateTime": 1490177352,
-          "orderDetailList": [
-            {
-                "detailId": "161899085974995851",
-                "orderId": "161899085773669363",
-                "productId": "157875196362360019",
-                "productName": "招牌奶茶",
-                "productPrice": 9,
-                "productQuantity": 2,
-                "productIcon": "http://xxx.com",
-                "productImage": "http://xxx.com"
-            }
-        ]
-    }
-}
-```
-
-###取消订单
-
-```
-POST /sell/buyer/order/cancel
-```
-
-参数
-
-```
-openid: 18eu2jwk2kse3r42e2e
-orderId: 161899085773669363
-```
-
-返回
-
-```
-{
-    "code": 0,
-    "msg": "成功",
-    "data": null
-}
-```
-
-###获取openid
-
-```
-重定向到 /sell/wechat/authorize
-```
-
-参数
-
-```
-returnUrl: http://xxx.com/abc  //【必填】
-```
-
-返回
-
-```
-http://xxx.com/abc?openid=oZxSYw5ldcxv6H0EU67GgSXOUrVg
-```
-
-###支付订单
-```
-重定向 /sell/pay/create
-```
-
-参数
-
-```
-orderId: 161899085773669363
-returnUrl: http://xxx.com/abc/order/161899085773669363
-```
-
-返回
-
-```
-http://xxx.com/abc/order/161899085773669363
 ```
 
 

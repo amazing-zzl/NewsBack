@@ -11,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
@@ -53,5 +54,13 @@ public class NewsServiceImplTest {
         newsInfo.setNewsIsreview(NewsReviewEnum.NO.getCode());
         NewsInfo result = newsService.save(newsInfo);
         Assert.assertNotEquals(null,result);
+    }
+
+    @Test
+    public void newsPage(){
+        Sort sort = new Sort(Sort.Direction.DESC, "newsCategory");
+        Pageable pageable = new PageRequest(0,2,sort);
+        Page<NewsInfo> newsInfoPage = newsService.findList(1,pageable);
+        Assert.assertNotNull(null,newsInfoPage);
     }
 }
