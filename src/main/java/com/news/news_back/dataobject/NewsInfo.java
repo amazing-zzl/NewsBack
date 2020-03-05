@@ -4,7 +4,10 @@ import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 
 @Entity
@@ -12,6 +15,7 @@ import java.util.Date;
 @DynamicUpdate
 public class NewsInfo {
     @Id
+    @GeneratedValue
     private Integer newsId;
 
     /*标题*/

@@ -30,6 +30,11 @@ public class NewsServiceImplTest {
         NewsInfo newsInfo = newsService.findOne(1);
         Assert.assertEquals(new Integer(1),newsInfo.getNewsId());
     }
+    @Test
+    public void deleteOne(){
+        newsService.deleteByNewsId(16);
+
+    }
 
     @Test
     public void findUpAll() {
@@ -41,7 +46,7 @@ public class NewsServiceImplTest {
     public void findAll() {
         PageRequest request = new PageRequest(0,6);
         Page<NewsInfo> newsInfoPage = newsService.findAll(request);
-        System.out.println(newsInfoPage.getTotalElements());
+        //System.out.println(newsInfoPage.getTotalElements());
     }
 
     @Test

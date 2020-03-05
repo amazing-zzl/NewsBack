@@ -17,5 +17,4 @@ public class NewsVO {
 
     @JsonProperty("newsInfo")
     private List<NewsInfoVO> newsInfoVOList;
-
 }
