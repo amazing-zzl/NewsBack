@@ -11,5 +11,6 @@ import java.util.List;
 public interface NewsInfoRepository extends JpaRepository<NewsInfo,Integer> {
     List<NewsInfo> findByNewsIsreview(Integer newsIsreview);
     NewsInfo findByNewsId(Integer newsId);
+    void deleteByNewsId(Integer newsId);
     Page<NewsInfo> findByNewsCategory(Integer newsCategory, Pageable pageable);
 }

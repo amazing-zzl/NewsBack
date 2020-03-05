@@ -22,7 +22,7 @@ public class NewsCategoryRepositoryTest {
     @Test
     public void findOneTest(){
         NewsCategory newsCategory = repository.findOne(1);
-        System.out.println(newsCategory.toString());
+        //System.out.println(newsCategory.toString());
     }
 
     @Test

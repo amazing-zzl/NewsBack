@@ -27,7 +27,6 @@ public class UserDetailsController{
      * @param id
      * GET url:news_back/user/news/details?id=" + id
      * url参数中的id必须要于RequestParam中的参数名相同
-     * @return
      */
     @GetMapping("/details")
     public ResultVO Details(@RequestParam("id") Integer id){

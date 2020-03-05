@@ -9,4 +9,5 @@ public interface NewsCategoryRepository extends JpaRepository<NewsCategory,Integ
 
     List<NewsCategory> findByCategoryTypeIn(List<Integer> categoryTypeList);
 
+    void deleteByCategoryId(Integer categoryId);
 }

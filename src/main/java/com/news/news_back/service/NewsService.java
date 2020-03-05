@@ -17,5 +17,7 @@ public interface NewsService {
 
     NewsInfo save(NewsInfo newsInfo);
 
+    void deleteByNewsId(Integer newsId);
+
     Page<NewsInfo> findList(Integer category,Pageable pageable);
 }
